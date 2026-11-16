@@ -1,103 +1,97 @@
-"""Módulo de modelado MCO (OLS) y evaluación estadística con statsmodels para ARC."""
+"""Módulo de modelado MCO (statsmodels OLS), métricas y diagnóstico de residuales."""
 
-from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
+from scipy.stats import shapiro
 from statsmodels.regression.linear_model import RegressionResultsWrapper
+from statsmodels.stats.diagnostic import het_breuschpagan
+from statsmodels.stats.stattools import durbin_watson
 
-from arc_project.eda import compute_vif
-
-
-@dataclass
-class OLSModelResult:
-    """Contenedor estructurado para los resultados de un modelo MCO."""
-
-    target: str
-    predictors: list[str]
-    n_obs: int
-    model: RegressionResultsWrapper
-    metrics: dict[str, float]
-    coefficients: pd.DataFrame
-    vif: pd.DataFrame
+DEFAULT_PREDICTORS: list[str] = [
+    "WURS",
+    "Adhd TScore Commissions",
+    "ACC__fourier_entropy__bins_100",
+    "CT",
+]
 
 
 def fit_ols_model(
     df: pd.DataFrame,
-    predictors: list[str],
     target: str = "ASRS",
-) -> OLSModelResult:
-    """Ajusta un modelo de Regresión Lineal Múltiple (MCO) con statsmodels.
+    predictors: list[str] | None = None,
+    log_target: bool = False,
+) -> tuple[RegressionResultsWrapper, pd.DataFrame]:
+    """Ajusta un modelo de regresión lineal múltiple por MCO usando statsmodels."""
+    cols = predictors if predictors is not None else DEFAULT_PREDICTORS
+    model_df = df[[target, *cols]].dropna().copy()
 
-    Elimina filas con valores faltantes en el objetivo o en los predictores
-    seleccionados, añade intercepto y calcula métricas globales, tabla de
-    coeficientes con IC al 95% y VIF de los predictores.
-    """
-    missing_cols = [c for c in [target, *predictors] if c not in df.columns]
-    if missing_cols:
-        raise ValueError(f"Columnas no encontradas en el DataFrame: {missing_cols}")
+    y = np.log(model_df[target]) if log_target else model_df[target]
+    x = sm.add_constant(model_df[cols])
 
-    df_clean = df[[target, *predictors]].dropna().copy()
-    if len(df_clean) <= len(predictors) + 1:
-        raise ValueError(
-            f"Observaciones insuficientes ({len(df_clean)}) para {len(predictors)} predictores."
-        )
+    model = sm.OLS(y, x).fit()
+    return model, model_df
 
-    y = df_clean[target]
-    x_const = sm.add_constant(df_clean[predictors], has_constant="add")
-    fitted = sm.OLS(y, x_const).fit()
 
-    rmse = float(np.sqrt(np.mean(fitted.resid**2)))
-    metrics = {
-        "n_obs": int(fitted.nobs),
-        "r2": float(fitted.rsquared),
-        "adj_r2": float(fitted.rsquared_adj),
-        "f_stat": float(fitted.fvalue),
-        "f_pvalue": float(fitted.f_pvalue),
-        "aic": float(fitted.aic),
-        "bic": float(fitted.bic),
+def extract_model_metrics(model: RegressionResultsWrapper) -> dict[str, float | int]:
+    """Extrae métricas globales de ajuste del modelo MCO."""
+    rmse = float(np.sqrt(np.mean(model.resid**2)))
+    return {
+        "n_obs": int(model.nobs),
+        "r2": float(model.rsquared),
+        "r2_adj": float(model.rsquared_adj),
+        "f_stat": float(model.fvalue),
+        "f_pvalue": float(model.f_pvalue),
+        "aic": float(model.aic),
+        "bic": float(model.bic),
         "rmse": rmse,
     }
 
-    conf_int = fitted.conf_int(alpha=0.05)
-    coefficients = pd.DataFrame(
+
+def extract_coefficients_table(model: RegressionResultsWrapper) -> pd.DataFrame:
+    """Genera tabla de coeficientes estimados, EE, estadístico t, p-valor e IC 95%."""
+    conf = model.conf_int()
+    return pd.DataFrame(
         {
-            "variable": fitted.params.index,
-            "coef": fitted.params.values,
-            "std_err": fitted.bse.values,
-            "t_stat": fitted.tvalues.values,
-            "p_value": fitted.pvalues.values,
-            "ci_lower": conf_int[0].values,
-            "ci_upper": conf_int[1].values,
+            "variable": model.params.index,
+            "coef": model.params.values,
+            "std_err": model.bse.values,
+            "t_stat": model.tvalues.values,
+            "p_value": model.pvalues.values,
+            "ci_low": conf[0].values,
+            "ci_high": conf[1].values,
         }
     )
 
-    vif_df = compute_vif(df_clean, predictors)
 
-    return OLSModelResult(
-        target=target,
-        predictors=list(predictors),
-        n_obs=int(fitted.nobs),
-        model=fitted,
-        metrics=metrics,
-        coefficients=coefficients,
-        vif=vif_df,
-    )
+def run_residual_diagnostics(model: RegressionResultsWrapper) -> dict[str, float]:
+    """Ejecuta pruebas de normalidad (Shapiro-Wilk), heterocedasticidad (BP) e independencia (DW)."""
+    shapiro_stat, shapiro_p = shapiro(model.resid)
+    bp_stat, bp_p, _, _ = het_breuschpagan(model.resid, model.model.exog)
+    dw_stat = durbin_watson(model.resid)
+    return {
+        "shapiro_stat": float(shapiro_stat),
+        "shapiro_p": float(shapiro_p),
+        "bp_stat": float(bp_stat),
+        "bp_p": float(bp_p),
+        "durbin_watson": float(dw_stat),
+    }
 
 
-def save_ols_outputs(
-    result: OLSModelResult,
+def save_modeling_outputs(
+    model: RegressionResultsWrapper,
+    vif_df: pd.DataFrame,
     output_dir: Path = Path("reports/tables"),
-    prefix: str = "ols_baseline",
 ) -> None:
-    """Guarda la tabla de coeficientes, VIF y resumen completo del modelo MCO."""
+    """Guarda tablas de coeficientes, métricas globales, diagnósticos y VIF en CSV."""
     output_dir.mkdir(parents=True, exist_ok=True)
-    result.coefficients.to_csv(output_dir / f"{prefix}_coefficients.csv", index=False)
-    result.vif.to_csv(output_dir / f"{prefix}_vif.csv", index=False)
-    (output_dir / f"{prefix}_summary.txt").write_text(
-        result.model.summary().as_text(),
-        encoding="utf-8",
-    )
+    extract_coefficients_table(model).to_csv(output_dir / "ols_coefficients.csv", index=False)
 
+    metrics = extract_model_metrics(model)
+    diagnostics = run_residual_diagnostics(model)
+    summary_df = pd.DataFrame([{**metrics, **diagnostics}])
+    summary_df.to_csv(output_dir / "ols_summary_metrics.csv", index=False)
+
+    vif_df.to_csv(output_dir / "ols_vif.csv", index=False)
