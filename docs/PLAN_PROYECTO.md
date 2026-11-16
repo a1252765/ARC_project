@@ -59,9 +59,10 @@ ARC_project/
 │       ├── modeling.py        # Ajuste MCO (statsmodels OLS), transformaciones, diagnóstico de residuales
 │       └── forecasting.py     # Estimaciones puntuales, intervalos de confianza/predicción y reversión ln/exp
 ├── notebooks/
-│   ├── 01_eda_integracion.ipynb
-│   ├── 02_modelo_mco_y_diagnostico.ipynb
-│   └── 03_estimaciones_y_graficas_reporte.ipynb
+│   ├── 01_data_ingestion_and_cleaning.ipynb
+│   ├── 02_eda_and_feature_selection.ipynb
+│   ├── 03_ols_modeling_and_diagnostics.ipynb
+│   └── 04_transformations_and_forecasting.ipynb
 ├── reports/
 │   ├── figures/               # Gráficas exportadas en alta resolución (300 dpi) para el PDF y slides
 │   ├── tables/                # Tablas de coeficientes, VIF, ANOVA y correlaciones (CSV / LaTeX)

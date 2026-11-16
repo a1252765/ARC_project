@@ -31,7 +31,7 @@ Este documento resume los lineamientos de la profesora y los acuerdos definidos 
 
 * **Rol del asistente (IA):** Actuar como **guía y facilitador** paso a paso mediante un checklist por fases, ayudando a Richie y Mariana a aprender y construir el proyecto desde cero. Solo implementa código o tareas directamente cuando se le pida de forma explícita.
 * **Entorno de trabajo:**
-  * Construir el análisis paso a paso en **Jupyter Notebooks** (`notebooks/01_eda_y_seleccion.ipynb`, `02_modelo_mco_y_evaluacion.ipynb`, `03_transformaciones_y_pronosticos.ipynb`) en una rama nueva (`feature/analisis-desde-cero`), usando `uv` (`uv run jupyter lab`).
+  * Construir el análisis paso a paso en **Jupyter Notebooks** (`notebooks/01_data_ingestion_and_cleaning.ipynb`, `02_eda_and_feature_selection.ipynb`, `03_ols_modeling_and_diagnostics.ipynb`, `04_transformations_and_forecasting.ipynb`) en una rama nueva (`feature/analisis-desde-cero`), usando `uv` (`uv run jupyter lab`).
 * **Criterio de selección de variables (3–4 predictores):**
   * **Enfoque híbrido:** combinar sentido clínico/teórico respecto a `ASRS`, correlación lineal clara ($r$) y ausencia de multicolinealidad ($\text{VIF} < 5$).
 * **Reporte y distribución de carga:**
@@ -44,5 +44,5 @@ Este documento resume los lineamientos de la profesora y los acuerdos definidos 
 
 * Repositorio sincronizado en `main` (`a3c72b1`), limpio y con `uv` verificado.
 * Datos crudos ya disponibles en `data/raw/` (`patient_info.csv`, `features.csv`, `CPT_II_ConnersContinuousPerformanceTest.csv`) y dataset integrado en `data/processed/hyperaktiv_arc_clean.csv`.
-* **Pendiente para iniciar (Fase 0):** crear la rama `feature/analisis-desde-cero` en `/home/richie/Documents/GitHub/ARC_project`, crear `notebooks/01_eda_y_seleccion.ipynb` y arrancar la **Fase 1** en Jupyter Lab.
+* **Pendiente para iniciar (Fase 0):** crear la rama `feature/analisis-desde-cero` en `/home/richie/Documents/GitHub/ARC_project`, crear `notebooks/01_data_ingestion_and_cleaning.ipynb` y arrancar la **Fase 1** en Jupyter Lab.
 

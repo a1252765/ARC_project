@@ -60,10 +60,11 @@ Esta guía sigue los **5 elementos obligatorios de la rúbrica** y está pensada
    git checkout -b feature/analisis-desde-cero
    ```
 2. **`[Richie y Mariana]` Verificar que los 3 CSV existen en su `data/raw/` local** (separador `;` y codificación `utf-8-sig` en el archivo de CPT-II) y confirmar que `uv sync` funciona en ambas computadoras.
-3. **`[Richie]` Crear la carpeta `notebooks/`** con tres notebooks base y subir la estructura inicial a la rama:
-   * `notebooks/01_eda_y_seleccion.ipynb`
-   * `notebooks/02_modelo_mco_y_evaluacion.ipynb`
-   * `notebooks/03_transformaciones_y_pronosticos.ipynb`
+3. **`[Richie]` Crear la carpeta `notebooks/`** con cuatro notebooks base por etapa y subir la estructura inicial a la rama:
+   * `notebooks/01_data_ingestion_and_cleaning.ipynb`
+   * `notebooks/02_eda_and_feature_selection.ipynb`
+   * `notebooks/03_ols_modeling_and_diagnostics.ipynb`
+   * `notebooks/04_transformations_and_forecasting.ipynb`
 
 ---
 
