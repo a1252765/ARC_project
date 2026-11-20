@@ -1,5 +1,4 @@
-variable,VIF
-WURS,1.3146419035970889
-Adhd TScore Commissions,1.267854548890628
-ACC__fourier_entropy__bins_100,1.0631357762204001
-CT,1.0442881211684745
+feature,vif
+WURS,1.623
+General TScore Commissions,1.39
+HADS_A,1.205
