@@ -1,0 +1,42 @@
+variable,r,p_valor,n
+WURS,0.685,0.0,74
+Adhd TScore Commissions,0.528,0.0,75
+General TScore Commissions,0.526,0.0,75
+Neuro TScore Commissions,0.482,0.0,75
+Adhd TScore DPrime,0.405,0.0003,75
+General TScore DPrime,0.398,0.0004,75
+Neuro TScore DPrime,0.357,0.0016,75
+General TScore VarSE,0.314,0.0061,75
+HADS_A,0.304,0.0111,69
+Neuro TScore VarSE,0.303,0.0082,75
+Adhd TScore HitRTBlock,0.295,0.0102,75
+Adhd TScore VarSE,0.289,0.012,75
+General TScore HitRTBlock,0.287,0.0126,75
+General TScore Omissions,0.287,0.0126,75
+General TScore Perseverations,0.281,0.0148,75
+General TScore HitSE,0.275,0.0171,75
+Neuro TScore HitSE,0.26,0.0244,75
+Neuro TScore HitSEBlock,0.257,0.0258,75
+Adhd TScore HitSEBlock,0.253,0.0287,75
+Neuro TScore HitRTBlock,0.251,0.0299,75
+Adhd TScore Perseverations,0.249,0.0314,75
+General TScore HitSEBlock,0.247,0.0326,75
+Adhd TScore HitSEIsi,0.223,0.0545,75
+Adhd TScore HitSE,0.221,0.0563,75
+Adhd TScore Omissions,0.218,0.0607,75
+General TScore HitSEIsi,0.204,0.0785,75
+Neuro TScore HitSEIsi,0.203,0.0807,75
+Neuro TScore Omissions,0.186,0.1102,75
+General TScore HitRTIsi,0.184,0.1138,75
+MADRS,0.171,0.1542,71
+Neuro TScore HitRTIsi,0.167,0.1527,75
+General TScore HitRT,-0.164,0.1606,75
+Neuro TScore Perseverations,0.158,0.1755,75
+Adhd TScore Beta,-0.129,0.2683,75
+AGE,-0.116,0.3197,75
+Neuro TScore HitRT,-0.115,0.3259,75
+HADS_D,0.112,0.3613,69
+Adhd TScore HitRTIsi,0.101,0.3877,75
+Adhd TScore HitRT,-0.092,0.4337,75
+General TScore Beta,-0.057,0.6278,75
+Neuro TScore Beta,-0.014,0.9022,75
