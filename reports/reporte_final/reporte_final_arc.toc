@@ -1,0 +1,26 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción y planteamiento del problema}{2}{section.1}%
+\contentsline {section}{\numberline {2}Justificación del método y marco metodológico}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Regresión lineal múltiple frente a series de tiempo}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Metodología CRISP-ML(Q)}{2}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Descripción clínica e ingeniería de los datos}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Ingeniería de datos: limpieza e integración ($n = 75 \rightarrow n = 69$)}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Descripción clínica de las variables}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Análisis exploratorio de datos (EDA), correlación y selección}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Distribución de la variable respuesta (\texttt {ASRS})}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Coeficientes de correlación de Pearson ($r$) (Rúbrica 1b)}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Gráficas de dispersión (Rúbrica 1a)}{5}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Selección final de predictores y validación de multicolinealidad (VIF)}{6}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Modelado por Mínimos Cuadrados Ordinarios (MCO) e interpretación}{6}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Planteamiento formal del modelo (Rúbrica 2a)}{6}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Coeficientes, bondad de ajuste y pruebas $F$ y $t$ (Rúbrica 4a y 4b)}{7}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Interpretación teórica y práctica de los parámetros (Rúbrica 2b)}{7}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Evaluación visual y diagnóstico de supuestos}{8}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Valores reales frente a valores predichos (Rúbrica 4c)}{8}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Diagnóstico gráfico y formal de residuales}{9}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Evaluación de transformaciones y reversión a escala original (Rúbrica 3a)}{9}{section.7}%
+\contentsline {section}{\numberline {8}Estimaciones puntuales y utilidad práctica (Rúbrica 5a)}{10}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Perfiles clínicos y pronósticos al 95\%}{10}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Utilidad clínica y limitaciones}{11}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Conclusiones generales}{11}{section.9}%
+\contentsline {section}{Referencias}{12}{section*.15}%
