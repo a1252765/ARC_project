@@ -1,0 +1,4 @@
+perfil,WURS,General TScore Commissions,HADS_A,asrs_pred,ci_mean_lower,ci_mean_upper,pi_obs_lower,pi_obs_upper,pi_obs_upper_clipped,asrs_pred_sqrt_reverted
+Carga baja,16,43,3,27.14,22.48,31.81,6.82,47.46,47.46,27.09
+Carga moderada,38,57,9,40.31,37.9,42.72,20.39,60.23,60.23,39.54
+Carga alta,65,73,16,56.06,51.11,61.0,35.67,76.44,72.0,57.62
