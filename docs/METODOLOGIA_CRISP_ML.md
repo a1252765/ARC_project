@@ -3,7 +3,7 @@
 **Proyecto:** Modelado de la Severidad de Síntomas de TDAH en Adultos (`ASRS`) mediante Regresión Lineal Múltiple (MCO / OLS)  
 **Dataset:** HYPERAKTIV (Hicks et al., 2021)  
 **Equipo:** Richie & Mariana  
-**Última actualización:** 20 de noviembre de 2026
+**Última actualización:** 25 de noviembre de 2026
 
 ---
 
@@ -16,9 +16,9 @@ El desarrollo del proyecto sigue el estándar de ciencia de datos **CRISP-DM / C
 | **1. Comprensión del Negocio y de los Datos** (*Business & Data Understanding*) | `docs/` y `notebooks/01_data_ingestion_and_cleaning.ipynb`, `02_eda_and_feature_selection.ipynb` | 1a, 1b | **Completado** |
 | **2. Preparación de los Datos** (*Data Preparation*) | `notebooks/01_data_ingestion_and_cleaning.ipynb`, `02_eda_and_feature_selection.ipynb` | 1a, 1b | **Completado** |
 | **3. Modelado** (*Modeling*) | `notebooks/03_ols_modeling_and_diagnostics.ipynb` (Secciones 1–3) | 2a, 2b | **Completado** |
-| **4. Evaluación y Aseguramiento de Calidad** (*Evaluation & QA*) | `notebooks/03_ols_modeling_and_diagnostics.ipynb` (Secciones 3–5) y `04_transformations_and_forecasting.ipynb` | 3a, 4a, 4b, 4c | **En progreso** (4a–4b listos; falta 4c, residuales y 3a) |
-| **5. Despliegue / Inferencia Aplicada** (*Deployment / Forecasting*) | `notebooks/04_transformations_and_forecasting.ipynb` | 5a | **Pendiente** |
-| **6. Comunicación y Monitoreo / Reporte Final** (*Documentation & Reporting*) | `reports/reporte_final/` (Obsidian Markdown $\rightarrow$ LaTeX/PDF) y presentación oral | Todas | **Pendiente** |
+| **4. Evaluación y Aseguramiento de Calidad** (*Evaluation & QA*) | `notebooks/03_ols_modeling_and_diagnostics.ipynb` (Secciones 3–5) y `04_transformations_and_forecasting.ipynb` (Sección 2) | 3a, 4a, 4b, 4c | **Completado** |
+| **5. Despliegue / Inferencia Aplicada** (*Deployment / Forecasting*) | `notebooks/04_transformations_and_forecasting.ipynb` (Sección 3) | 5a | **Completado** |
+| **6. Comunicación y Monitoreo / Reporte Final** (*Documentation & Reporting*) | `reports/reporte_final/` (`secciones_mariana.md`, `secciones_richie.md` $\rightarrow$ PDF) y presentación oral | Todas | **En progreso** (secciones listas; falta ensamblaje PDF) |
 
 ---
 
@@ -103,10 +103,10 @@ Evaluar la bondad de ajuste y significancia estadística del modelo, contrastar 
    - **Prueba $F$ global:** $F(3, 65) = 24.8355$, $p = 8.00 \times 10^{-11} < 0.001$ (rechazo contundente de $H_0: \beta_1 = \beta_2 = \beta_3 = 0$).
    - **Pruebas $t$ individuales ($\alpha = 0.05$):** `WURS` ($t = 4.9957, p < 0.0001$) y `General TScore Commissions` ($t = 2.6507, p = 0.0101$) resultan estadísticamente significativos; `HADS_A` ($t = 0.4492, p = 0.6547$) no resulta significativo.
 
-#### Trabajo pendiente en esta fase
-- **Gráfica de valores reales vs. predichos (Rúbrica 4c):** dispersión de $y$ vs. $\hat{y}$ con línea identidad ($y = x$) en `reports/figures/ols_real_vs_predicho.png` (Sección 4 de `03_ols_modeling_and_diagnostics.ipynb`).
-- **Diagnóstico gráfico y formal de residuales:** panel $2 \times 2$ (residuales vs. ajustados, Q-Q plot, histograma y distancia de Cook) en `reports/figures/ols_residual_diagnostics.png` y pruebas de Shapiro-Wilk, Breusch-Pagan y Durbin-Watson en `reports/tables/ols_diagnostics.csv` (Sección 5 de `03_ols_modeling_and_diagnostics.ipynb`).
-- **Evaluación de transformaciones y reversión a escala original (Rúbrica 3a):** comparación del modelo base frente a transformaciones candidatas en `notebooks/04_transformations_and_forecasting.ipynb`.
+#### Trabajo completado adicional en esta fase (`notebooks/03_ols_modeling_and_diagnostics.ipynb` y `04_transformations_and_forecasting.ipynb`)
+- **Gráfica de valores reales vs. predichos (Rúbrica 4c):** dispersión de $y$ vs. $\hat{y}$ con línea identidad ($y = x$) en `reports/figures/ols_real_vs_predicho.png`.
+- **Diagnóstico gráfico y formal de residuales:** panel $2 \times 2$ en `reports/figures/ols_residual_diagnostics.png` y pruebas en `reports/tables/ols_diagnostics.csv` (Shapiro-Wilk $W = 0.9780, p = 0.2634$; Breusch-Pagan $\text{LM} = 6.7705, p = 0.0796$; Durbin-Watson $= 2.174$; 0 observaciones con Cook $> 1.0$).
+- **Evaluación de transformaciones y reversión a escala original (Rúbrica 3a):** comparación del modelo base contra $\ln(\text{ASRS})$, $\sqrt{\text{ASRS}}$ (con reversión insesgada) y modelo parsimonioso sin `HADS_A` en `reports/tables/ols_transformations_comparison.csv`. Se conserva el modelo base lineal al ser el único que cumple simultáneamente normalidad y homocedasticidad y logra el menor RMSE en escala `ASRS` (`9.6102`).
 
 ---
 
@@ -115,10 +115,10 @@ Evaluar la bondad de ajuste y significancia estadística del modelo, contrastar 
 #### Objetivo metodológico
 Utilizar el modelo validado para generar estimaciones puntuales e intervalos de confianza/predicción al 95 % sobre perfiles clínicos realistas y evaluar su utilidad práctica en la toma de decisiones clínicas.
 
-#### Trabajo pendiente (`notebooks/04_transformations_and_forecasting.ipynb`)
-- Definir al menos **2 perfiles clínicos de pacientes** dentro del dominio observado (ej. perfil de baja carga sintomática/conductual vs. perfil de alta carga).
-- Calcular pronósticos puntuales ($\widehat{\text{ASRS}}$), intervalos de confianza de la media e intervalos de predicción al 95 % con `.get_prediction()` (y reversión de transformación si aplica — **Rúbrica 3a y 5a**).
-- Redactar conclusión sobre precisión, alcance clínico y limitaciones del modelo (**Rúbrica 5a**).
+#### Trabajo completado (`notebooks/04_transformations_and_forecasting.ipynb`)
+- Definición de **3 perfiles clínicos** por percentiles P10, P50 y P90 ($n = 69$, sin extrapolación): Carga baja, Carga moderada y Carga alta.
+- Cálculo de pronósticos puntuales ($\widehat{\text{ASRS}} = 27.14$, $40.31$ y $56.06$), IC 95 % de la media e IP 95 % individual con `.get_prediction()` en `reports/tables/ols_forecasts.csv` y gráfica `reports/figures/ols_forecasts_profiles.png` (**Rúbrica 5a**).
+- Documentación de la utilidad clínica (estratificación/apoyo al cribado) y limitaciones ($\text{RMSE} \approx 9.9$, $n = 69$, autorreporte).
 
 ---
 
@@ -127,7 +127,8 @@ Utilizar el modelo validado para generar estimaciones puntuales e intervalos de 
 #### Objetivo metodológico
 Integrar los hallazgos matemáticos, estadísticos y clínicos en un documento técnico reproducible y preparar la defensa oral del proyecto.
 
-#### Trabajo pendiente (`reports/reporte_final/`)
-- Ensamblaje del reporte final en **Obsidian Markdown $\rightarrow$ LaTeX/PDF** incorporando las figuras de `reports/figures/` y las tablas de `reports/tables/` (entrega: **miércoles 25 de noviembre de 2026**).
-- Preparación de la exposición oral de 12–15 minutos (**jueves 26 de noviembre de 2026**).
+#### Estado actual (`reports/reporte_final/`)
+- **Borradores listos:** `reports/reporte_final/secciones_mariana.md` y `reports/reporte_final/secciones_richie.md`.
+- **Pendiente (25 nov):** cierre de párrafos finales de Mariana y ensamblaje editorial **Obsidian Markdown $\rightarrow$ LaTeX/PDF** (entrega: **miércoles 25 de noviembre de 2026, 11:59 p.m.**).
+- **Exposición oral:** 12–15 minutos (**jueves 26 de noviembre de 2026**).
 

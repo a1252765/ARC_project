@@ -1,0 +1,5 @@
+model,k_predictors,r2_adj_model,r2_orig,rmse_orig,aic,bic,shapiro_p,bp_p
+Base lineal (3 pred.),3,0.5126,0.5341,9.6102,516.08,525.02,0.2634,0.0796
+Log-Lineal ln(ASRS),3,0.403,0.4427,10.5101,57.93,66.87,0.0,0.0268
+Raíz cuadrada sqrt(ASRS),3,0.4726,0.5228,9.7259,183.79,192.73,0.0127,0.0215
+Parsimonioso (sin HADS_A),2,0.5185,0.5326,9.6251,514.3,521.0,0.2829,0.0411

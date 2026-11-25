@@ -91,3 +91,16 @@ profiles_df = pd.DataFrame({
 1. **Notebook 03 sin cambios:** los cambios locales de 01, 02 y 03 producidos al abrirlos en Jupyter se descartaron con `git restore`; no se subieron.
 2. **Documento desactualizado:** en `docs/METODOLOGIA_CRISP_ML.md`, la fila de la Fase 4 todavía marca como pendientes la gráfica real vs. predicho (4c) y el diagnóstico de residuales, pero ya están completos en el Notebook 03.
 3. **Coordinación:** para evitar conflictos en `.ipynb`, avisar antes de editar el Notebook 04 y hacer `git pull` antes de empezar.
+
+---
+
+## 4. Respuesta y cierre de Richie (25 de noviembre de 2026)
+
+**Todo el análisis (Notebooks 01–04) y las secciones técnicas de Richie están 100 % completados y listos en `main`:**
+
+1. **Notebook 04 completado y ejecutado (`notebooks/04_transformations_and_forecasting.ipynb`):**
+   - **Transformaciones (Rúbrica 3a):** se comparó el modelo base contra $\ln(\text{ASRS})$, $\sqrt{\text{ASRS}}$ (con reversión analítica a escala original) y el modelo parsimonioso sin `HADS_A`. Tabla oficial en `reports/tables/ols_transformations_comparison.csv`. Se conserva el **modelo lineal base (3 predictores)** al ser el único que cumple simultáneamente normalidad (Shapiro-Wilk $p = 0.2634$) y homocedasticidad (Breusch-Pagan $p = 0.0796$) y obtiene el menor RMSE en escala `ASRS` (`9.6102`).
+   - **Pronósticos clínicos (Rúbrica 5a):** calculados sobre `profiles_df` con `.get_prediction().summary_frame(alpha=0.05)` $\rightarrow$ `reports/tables/ols_forecasts.csv` y `reports/figures/ols_forecasts_profiles.png` (`Carga baja: 27.14`, `Carga moderada: 40.31`, `Carga alta: 56.06`).
+2. **Secciones técnicas de Richie listas:** `reports/reporte_final/secciones_richie.md` (en Obsidian Markdown, listas para fusionarse con `reports/reporte_final/secciones_mariana.md`).
+3. **Metodología actualizada:** `docs/METODOLOGIA_CRISP_ML.md` actualizado con Fases 1–5 completadas.
+4. **Siguiente paso único para Mariana (entrega hoy 25 nov, 11:59 p.m.):** cerrar los párrafos de utilidad clínica/conclusiones generales en `secciones_mariana.md`, integrar `secciones_richie.md` y exportar el **PDF final** (Obsidian Markdown $\rightarrow$ LaTeX/PDF).
