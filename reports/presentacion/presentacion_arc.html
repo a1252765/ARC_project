@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Severidad de TDAH en adultos — Regresión Lineal Múltiple</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/serif.css">
+<style>
+  /* Paleta TDAH: azul cielo (calma y enfoque) + naranja suave (color de concientización del TDAH) */
+  :root {
+    --r-background-color: #EEF5FA;   /* azul cielo muy claro */
+    --r-main-color: #2E3A46;         /* texto: gris pizarra */
+    --r-heading-color: #2B5D7D;      /* títulos: azul profundo */
+    --r-link-color: #E08A4F;
+    --acento: #E08A4F;               /* naranja suave */
+    --suave: #6F8394;                /* texto secundario */
+  }
+  .reveal-viewport { background: #EEF5FA; }
+  .reveal h1, .reveal h2 { text-transform: none; text-shadow: none; }
+  .reveal h1 { color: #2B5D7D; }
+  .reveal h2 { font-size: 1.5em; margin-bottom: 0.5em; }
+  .reveal h2::after { content: ""; display: block; width: 60px; height: 4px; background: var(--acento); margin: 0.35em auto 0; border-radius: 2px; }
+  .reveal b { color: #2B5D7D; }
+  .reveal .sub { font-size: 0.75em; color: var(--suave); }
+  .reveal .small { font-size: 0.6em; color: var(--suave); }
+  .reveal .big { font-size: 3.2em; font-weight: bold; line-height: 1.1; color: var(--acento); }
+  .reveal table { background: #FFFFFF; border-radius: 8px; }
+  .reveal table th { color: #2B5D7D; border-bottom: 2px solid var(--acento); }
+  .reveal table td { border-bottom: 1px solid #D6E4EE; }
+  .reveal table tr.hl td { color: #2B5D7D; }
+  .reveal .progress { color: var(--acento); }
+  .reveal .slide-number { background: transparent; color: var(--suave); }
+  .reveal .question { font-size: 1.15em; line-height: 1.45; max-width: 900px; margin: 0 auto; }
+  .reveal img.fig { max-height: 400px; border: none; box-shadow: 0 2px 10px rgba(43,93,125,0.12); background: #FFFFFF; border-radius: 10px; padding: 8px; }
+  .reveal table { font-size: 0.62em; margin: 0 auto; }
+  .reveal table th, .reveal table td { padding: 0.35em 0.7em; }
+  .reveal table tr.hl td { font-weight: bold; }
+  .reveal .row { display: flex; justify-content: center; gap: 70px; align-items: flex-start; }
+  .reveal .row > div { flex: 1; max-width: 300px; }
+  .reveal .label { font-size: 0.6em; color: var(--suave); margin-top: 0.3em; }
+  .reveal .flow { font-size: 0.62em; display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .reveal .flow span.step { background: #FFFFFF; border: 2px solid #9CC3DC; color: #2B5D7D; border-radius: 10px; padding: 0.5em 0.8em; }
+  .reveal .flow span.arrow { color: var(--acento); }
+  .reveal .muted, .reveal tr.muted td { color: #A3B2BE; }
+  .reveal .two { display: flex; justify-content: center; align-items: center; gap: 40px; }
+  .reveal .two img.fig { max-height: 380px; max-width: 540px; }
+  .reveal .two table { font-size: 0.55em; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ===================== PARTE 1 — MARIANA (1–6, ~7 min) ===================== -->
+
+<!-- 1. Portada y problema -->
+<section>
+  <h1 style="font-size:1.8em;">Severidad de síntomas de TDAH en adultos</h1>
+  <p class="question" style="font-size:0.9em; margin-top:1em;">¿Qué tanto se explica por los <b>síntomas en la infancia</b>, la <b>impulsividad</b> medida en una prueba y la <b>ansiedad</b>?</p>
+  <p class="small" style="margin-top:2em;">Mariana Salazar · Luis Alejandro Luna Martínez</p>
+  <p class="small">Análisis de Regresión y Correlación · UABC · Dataset HYPERAKTIV (Hicks et al., 2021)</p>
+  <aside class="notes">MARIANA (~1 min). El TDAH empieza en la infancia y muchas veces continúa en la adultez. Evaluarlo en adultos es difícil porque depende mucho de lo que el paciente reporta. Usamos el dataset clínico HYPERAKTIV para responder qué tanto de la severidad actual (ASRS) se explica por los síntomas en la infancia, la impulsividad y la ansiedad.</aside>
+</section>
+
+<!-- 2. Por qué RLM + CRISP-ML(Q) -->
+<section>
+  <h2>¿Por qué regresión lineal múltiple?</h2>
+  <p class="question"><b>Corte transversal:</b> cada paciente se evaluó una sola vez, no hay orden en el tiempo.</p>
+  <p class="small" style="margin:1em 0 1.8em;">Más de 2 predictores · $n = 69 \ge 30$ · Durbin-Watson $= 2.174$</p>
+  <div class="flow">
+    <span class="step">Comprensión</span><span class="arrow">→</span>
+    <span class="step">Preparación</span><span class="arrow">→</span>
+    <span class="step">Modelado</span><span class="arrow">→</span>
+    <span class="step">Evaluación</span><span class="arrow">→</span>
+    <span class="step">Pronósticos</span><span class="arrow">→</span>
+    <span class="step">Comunicación</span>
+  </div>
+  <p class="small" style="margin-top:0.8em;">Metodología CRISP-ML(Q) · 4 notebooks, uno por etapa</p>
+  <aside class="notes">MARIANA (~1 min). No usamos series de tiempo porque cada fila es un paciente distinto evaluado una sola vez. Cumplimos n ≥ 30 y más de dos variables independientes; el Durbin-Watson confirma que no hay autocorrelación. Organizamos el trabajo con CRISP-ML(Q): cada fase quedó en su propio notebook.</aside>
+</section>
+
+<!-- 3. Variables -->
+<section>
+  <h2>Variables</h2>
+  <table>
+    <thead><tr><th></th><th>Variable</th><th>Qué mide</th><th>Escala</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>$Y$</td><td>ASRS</td><td>Severidad actual de TDAH (autorreporte, OMS)</td><td>0–72</td></tr>
+      <tr><td>$X_1$</td><td>WURS</td><td>Síntomas de TDAH en la infancia</td><td>0–100 (corte ≥ 46)</td></tr>
+      <tr><td>$X_2$</td><td>Commissions</td><td>Impulsividad en la prueba CPT-II</td><td>Puntaje T (&gt; 60 elevado)</td></tr>
+      <tr><td>$X_3$</td><td>HADS_A</td><td>Ansiedad</td><td>0–21 (≥ 11 clínica)</td></tr>
+    </tbody>
+  </table>
+  <p class="small" style="margin-top:1.2em;">Excluimos ID, ADHD y ADD para evitar fuga de información</p>
+  <aside class="notes">MARIANA (~1.5 min). ASRS es un cuestionario de cribado de 18 preguntas: entre más alto, más severos los síntomas. Los predictores ven al paciente desde tres enfoques: su historia (WURS), una prueba objetiva (CPT-II) y su estado emocional (HADS_A). No usamos ADHD ni ADD porque son el diagnóstico mismo.</aside>
+</section>
+
+<!-- 4. Distribución + correlaciones -->
+<section>
+  <h2>ASRS y sus correlaciones</h2>
+  <div class="two">
+    <img class="fig" src="../figures/asrs_distribucion.png" alt="Histograma y boxplot de ASRS">
+    <table>
+      <thead><tr><th>Variable</th><th>$r$</th><th>$p$</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td>WURS</td><td>0.685</td><td>&lt; 0.001</td></tr>
+        <tr class="hl"><td>Commissions</td><td>0.526</td><td>&lt; 0.001</td></tr>
+        <tr><td>DPrime</td><td>0.398</td><td>&lt; 0.001</td></tr>
+        <tr class="hl"><td>HADS_A</td><td>0.304</td><td>0.011</td></tr>
+        <tr class="muted"><td>MADRS</td><td>0.171</td><td>0.154</td></tr>
+        <tr class="muted"><td>HADS_D</td><td>0.112</td><td>0.361</td></tr>
+        <tr class="muted"><td>Edad</td><td>−0.116</td><td>0.320</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">$n = 75$ · Media 41.4 · Mediana 42 · Sin atípicos</p>
+  <aside class="notes">MARIANA (~1.5 min). ASRS es aproximadamente simétrica, con un grupito de 3 pacientes con puntajes muy bajos, pero sin atípicos. WURS tiene la relación más fuerte: quien tuvo más síntomas de niño reporta más de adulto. Commissions conecta una prueba objetiva con el autorreporte. HADS_A es débil pero significativa. MADRS, HADS_D y la edad no salieron significativas.</aside>
+</section>
+
+<!-- 5. Dispersión -->
+<section>
+  <h2>Siempre hay que graficar</h2>
+  <img class="fig" src="../figures/dispersion_candidatas.png" alt="Gráficas de dispersión contra ASRS">
+  <p class="small">Omissions: un solo paciente (≈ 330) infla su $r$ · DPrime: $r = 0.88$ con Commissions</p>
+  <aside class="notes">MARIANA (~1 min). WURS muestra una relación lineal clara y pareja. Descartamos Omissions porque un solo paciente jala la línea: sin él la relación casi desaparece. Descartamos DPrime porque mide prácticamente lo mismo que Commissions. Por eso el r siempre se acompaña de la gráfica.</aside>
+</section>
+
+<!-- 6. Peso por +1 DE -->
+<section>
+  <h2>¿Cuánto pesa cada predictor?</h2>
+  <p class="sub" style="margin-bottom:1.2em;">Cambio en ASRS al aumentar una desviación estándar</p>
+  <div class="row">
+    <div><p class="big">+7.7</p><p class="label">WURS</p></div>
+    <div><p class="big">+3.8</p><p class="label">Commissions</p></div>
+    <div><p class="big muted">+0.6</p><p class="label">HADS_A</p></div>
+  </div>
+  <aside class="notes">MARIANA (~1 min). Como cada variable tiene una escala distinta, comparamos cuánto sube ASRS cuando cada una aumenta una desviación estándar. Los síntomas en la infancia pesan el doble que la impulsividad, y la ansiedad casi no aporta una vez que se consideran las otras dos. Aquí le paso la palabra a Richie.</aside>
+</section>
+
+<!-- ===================== PARTE 2 — RICHIE (7–11, ~7 min) ===================== -->
+
+<!-- 7. Datos y VIF -->
+<section>
+  <h2>Datos y multicolinealidad</h2>
+  <p class="small" style="margin-bottom:1.2em;">3 archivos integrados por ID · regla CPT-II: Omissions &lt; 300 · 75 pacientes → <b>69</b> casos completos</p>
+  <table style="font-size:0.75em;">
+    <thead><tr><th>Predictor</th><th>VIF</th></tr></thead>
+    <tbody>
+      <tr><td>WURS</td><td>1.623</td></tr>
+      <tr><td>Commissions</td><td>1.390</td></tr>
+      <tr><td>HADS_A</td><td>1.205</td></tr>
+    </tbody>
+  </table>
+  <p class="small" style="margin-top:1.2em;">Todos &lt; 2 (umbral &lt; 5) · $\text{VIF}_j = \dfrac{1}{1 - R_j^2}$</p>
+  <aside class="notes">RICHIE (~1.5 min). Integración de los 3 CSV, regla de calidad del CPT-II y 69 casos completos (1 nulo en WURS, 6 en HADS_A). El VIF confirma que no hay multicolinealidad.</aside>
+</section>
+
+<!-- 8. Modelo, R², F y t -->
+<section>
+  <h2>El modelo estimado</h2>
+  <p style="font-size:0.8em;">$$\widehat{\text{ASRS}} = 7.635 + 0.368\,\text{WURS} + 0.308\,\text{Commissions} + 0.127\,\text{HADS\_A}$$</p>
+  <div class="row" style="margin-top:0.6em;">
+    <div><p class="big" style="font-size:2.2em;">53.4 %</p><p class="label">$R^2$ · ($R^2_{adj} = 0.513$)</p></div>
+    <div><p class="big" style="font-size:2.2em;">24.84</p><p class="label">$F(3,65)$, $p &lt; 0.001$</p></div>
+  </div>
+  <p class="small" style="margin-top:1em;">Significativos: WURS ($p &lt; 0.001$) y Commissions ($p = 0.010$) · No: HADS_A ($p = 0.655$) e intercepto ($p = 0.216$)</p>
+  <aside class="notes">RICHIE (~1.5 min). Estimación MCO en statsmodels. El modelo explica el 53.4 % de la variación de ASRS y es significativo en conjunto. Pruebas t: WURS y Commissions significativos; HADS_A y el intercepto no.</aside>
+</section>
+
+<!-- 9. Real vs predicho + residuales -->
+<section>
+  <h2>Ajuste y supuestos</h2>
+  <div class="two">
+    <img class="fig" src="../figures/ols_real_vs_predicho.png" alt="ASRS real contra predicho">
+    <img class="fig" src="../figures/ols_residual_diagnostics.png" alt="Diagnóstico de residuales">
+  </div>
+  <p class="small">Shapiro-Wilk $p = 0.263$ · Breusch-Pagan $p = 0.080$ · DW $= 2.17$ · Cook: 0 casos &gt; 1</p>
+  <aside class="notes">RICHIE (~1.5 min). Los puntos siguen la recta identidad sin patrones curvos. Se cumplen normalidad, homocedasticidad (cerca del 5 %), independencia, y no hay puntos que distorsionen el modelo.</aside>
+</section>
+
+<!-- 10. Transformaciones -->
+<section>
+  <h2>¿Transformar? No</h2>
+  <table>
+    <thead><tr><th>Modelo</th><th>RMSE (escala ASRS)</th><th>Shapiro-Wilk $p$</th><th>Breusch-Pagan $p$</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>Base lineal</td><td>9.61</td><td>0.263</td><td>0.080</td></tr>
+      <tr><td>$\ln(\text{ASRS})$</td><td>10.51</td><td>&lt; 0.001</td><td>0.027</td></tr>
+      <tr><td>$\sqrt{\text{ASRS}}$</td><td>9.73</td><td>0.013</td><td>0.022</td></tr>
+      <tr><td>Sin HADS_A</td><td>9.63</td><td>0.283</td><td>0.041</td></tr>
+    </tbody>
+  </table>
+  <p class="small" style="margin-top:1.2em;">Reversión: $\widehat{\text{ASRS}} = e^{\hat z + \hat\sigma^2/2}$ · $\widehat{\text{ASRS}} = \hat z^2 + \hat\sigma^2$</p>
+  <aside class="notes">RICHIE (~1.5 min). Probamos transformaciones por el p = 0.080 de Breusch-Pagan y la no significancia de HADS_A. ln y raíz estiran la cola izquierda, rompen la normalidad y suben el error. Quitar HADS_A rompe la homocedasticidad. El modelo base es el único que cumple todo.</aside>
+</section>
+
+<!-- 11. Pronósticos y cierre -->
+<section>
+  <h2>Pronósticos y conclusión</h2>
+  <div class="two">
+    <img class="fig" src="../figures/ols_forecasts_profiles.png" alt="Pronósticos por perfil clínico">
+    <table>
+      <thead><tr><th>Perfil</th><th>$\widehat{\text{ASRS}}$</th><th>IP 95 %</th></tr></thead>
+      <tbody>
+        <tr><td>Baja (P10)</td><td><b>27.1</b></td><td>[6.8, 47.5]</td></tr>
+        <tr><td>Moderada (P50)</td><td><b>40.3</b></td><td>[20.4, 60.2]</td></tr>
+        <tr><td>Alta (P90)</td><td><b>56.1</b></td><td>[35.7, 72.0]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="question" style="font-size:0.75em; margin-top:0.6em;">Útil para <b>cribado</b>, pero con ±20 puntos por paciente <b>no sustituye</b> la evaluación clínica.</p>
+  <aside class="notes">RICHIE (~1.5 min) y CIERRE CONJUNTO. Perfiles con los percentiles 10, 50 y 90 (sin extrapolación). Hay 28.9 puntos de diferencia entre carga baja y alta, así que el modelo distingue niveles de severidad. Pero a nivel individual el margen es de unos ±20 puntos, así que complementa la entrevista clínica y no la reemplaza. Banco de preguntas en docs/GUION_EXPOSICION.md.</aside>
+</section>
+
+<!-- 12. Gracias -->
+<section>
+  <h1 style="font-size:2.4em;">Gracias</h1>
+  <p class="sub">¿Preguntas?</p>
+  <p class="small" style="margin-top:2em;">Mariana Salazar · Luis Alejandro Luna Martínez</p>
+  <aside class="notes">Banco de preguntas posibles en docs/GUION_EXPOSICION.md: ¿por qué dejaron HADS_A?, ¿por qué empeoró con ln?, ¿cómo evitaron extrapolar?, ¿por qué el IP llega a 76.44?</aside>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    width: 1280,
+    height: 720,
+    center: true,
+    transition: 'fade',
+    plugins: [ RevealMath.KaTeX, RevealNotes ]
+  });
+</script>
+</body>
+</html>
