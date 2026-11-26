@@ -19,3 +19,12 @@ data/processed/*.csv
 .env
 .DS_Store
 Thumbs.db
+
+# Archivos auxiliares de compilación LaTeX
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
