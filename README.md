@@ -39,16 +39,20 @@ Los tres predictores seleccionados cubren dimensiones complementarias del cuadro
 ### 2.4 Criterios Estadísticos de Selección de Variables y Control de Colinealidad
 - **Complementariedad entre correlación de Pearson ($r$) y análisis gráfico:** se descartó `General TScore Omissions` ($r = 0.287$) porque la gráfica de dispersión reveló que su correlación estaba inflada por un único paciente extremo ($\approx 330$).
 - **Eliminación de redundancia:** se detectó colinealidad severa entre `Commissions` y `DPrime` ($r = 0.88$), conservando `Commissions` por su mayor asociación con `ASRS` ($r = 0.526$ vs. $0.398$) e interpretación directa.
-- **Factor de Inflación de Varianza (VIF):** se verificó $\text{VIF}_j = \frac{1}{1 - R_j^2} < 5$ para todos los predictores (`WURS = 1.623`, `General TScore Commissions = 1.390`, `HADS_A = 1.205`), descartando multicolinealidad.
+- **Factor de Inflación de Varianza (VIF):** se verificó $`\text{VIF}_j = \frac{1}{1 - R_j^2} < 5`$ para todos los predictores (`WURS = 1.623`, `General TScore Commissions = 1.390`, `HADS_A = 1.205`), descartando multicolinealidad.
 
 ### 2.5 Formulación Matemática MCO y Supuestos de Gauss-Markov
 El modelo lineal poblacional en forma escalar y matricial es:
 
-$$\text{ASRS}_i = \beta_0 + \beta_1\,\text{WURS}_i + \beta_2\,\text{Commissions}_i + \beta_3\,\text{HADS\_A}_i + \varepsilon_i, \qquad \mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}$$
+$$
+\text{ASRS}_i = \beta_0 + \beta_1\,\text{WURS}_i + \beta_2\,\text{Commissions}_i + \beta_3\,\text{HADS\_A}_i + \varepsilon_i, \qquad \mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}
+$$
 
-bajo $\mathbb{E}[\varepsilon_i \mid \mathbf{X}] = 0$, $\text{Var}(\varepsilon_i \mid \mathbf{X}) = \sigma^2$, $\text{Cov}(\varepsilon_i, \varepsilon_j \mid \mathbf{X}) = 0$ ($i \neq j$) y $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$. El estimador de Mínimos Cuadrados Ordinarios minimiza la suma de cuadrados residual y tiene solución cerrada:
+bajo $\mathbb{E}[\varepsilon_i \mid \mathbf{X}] = 0$, $\text{Var}(\varepsilon_i \mid \mathbf{X}) = \sigma^2$, $`\text{Cov}(\varepsilon_i, \varepsilon_j \mid \mathbf{X}) = 0`$ ($i \neq j$) y $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$. El estimador de Mínimos Cuadrados Ordinarios minimiza la suma de cuadrados residual y tiene solución cerrada:
 
-$$\hat{\boldsymbol{\beta}} = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{y}$$
+$$
+\hat{\boldsymbol{\beta}} = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{y}
+$$
 
 ### 2.6 Justificación Teórica de Transformaciones y Selección del Modelo Final
 Para contrastar si una transformación estabilizaba la varianza (dado Breusch-Pagan $p = 0.0796$), se evaluaron $\ln(\text{ASRS})$ y $\sqrt{\text{ASRS}}$ revirtiendo sus predicciones a la escala original de `ASRS` ($\widehat{Y} = \exp(\widehat{\ln Y} + \hat{\sigma}^2/2)$ y $\widehat{Y} = (\widehat{\sqrt{Y}})^2 + \hat{\sigma}^2$), así como un modelo parsimonioso sin `HADS_A`:
@@ -62,7 +66,9 @@ Para contrastar si una transformación estabilizaba la varianza (dado Breusch-Pa
 
 **Ecuación estimada ($n = 69$):**
 
-$$\widehat{\text{ASRS}}_i = 7.6350 + 0.3678\,\text{WURS}_i + 0.3079\,\text{Commissions}_i + 0.1273\,\text{HADS\_A}_i$$
+$$
+\widehat{\text{ASRS}}_i = 7.6350 + 0.3678\,\text{WURS}_i + 0.3079\,\text{Commissions}_i + 0.1273\,\text{HADS\_A}_i
+$$
 
 | Métrica / Prueba | Resultado | Conclusión |
 |---|---|---|
