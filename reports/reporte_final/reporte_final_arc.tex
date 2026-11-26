@@ -22,37 +22,50 @@
   urlcolor=PrimaryBlue,
   citecolor=PrimaryBlue,
   pdftitle={Modelado de la Severidad de Síntomas de TDAH en Adultos (ASRS) mediante Regresión Lineal Múltiple},
-  pdfauthor={Mariana y Richie}
+  pdfauthor={Luis Alejandro Luna Martínez y Mariana Salazar}
 }
 
 \captionsetup{font=small,labelfont=bf}
 \setlength{\parskip}{0.45em}
 \setlength{\parindent}{0pt}
 
+\newenvironment{aparefs}{%
+  \par\begingroup
+  \setlength{\parindent}{0pt}%
+  \setlength{\parskip}{0.55em}%
+  \everypar{\hangindent=1.27cm \hangafter=1}%
+}{\par\endgroup}
+
 \begin{document}
 
 % ==================== PORTADA ====================
 \begin{titlepage}
   \centering
-  \vspace*{1.5cm}
+  \vspace*{1.2cm}
   {\Large\bfseries\color{PrimaryBlue} Universidad Autónoma de Baja California (UABC)\par}
   \vspace{0.3cm}
   {\large Licenciatura en Ciencia de Datos\par}
   {\large Análisis de Regresión y Correlación (ARC)\par}
-  \vspace{2.2cm}
+  \vspace{1.8cm}
   \rule{\textwidth}{1.2pt}\\[0.5cm]
   {\LARGE\bfseries\color{PrimaryBlue} Modelado de la Severidad de Síntomas de TDAH en Adultos (\texttt{ASRS}) mediante Regresión Lineal Múltiple\par}
   \vspace{0.35cm}
   {\large\color{AccentGray} Análisis transversal del dataset clínico HYPERAKTIV bajo el marco CRISP-ML(Q)\par}
   \vspace{0.35cm}
   \rule{\textwidth}{1.2pt}
-  \vspace{2.2cm}
+  \vspace{1.6cm}
 
   {\large\bfseries Integrantes del equipo\par}
-  \vspace{0.4cm}
-  {\large Mariana \quad $\cdot$ \quad Richie\par}
+  \vspace{0.35cm}
+  {\large Luis Alejandro Luna Martínez\par}
+  {\large Mariana Salazar\par}
 
-  \vspace{2.2cm}
+  \vspace{1.0cm}
+  {\large\bfseries Profesora\par}
+  \vspace{0.3cm}
+  {\large Cynthia Calderón García\par}
+
+  \vspace{1.5cm}
   \begin{tabular}{ll}
     \toprule
     \textbf{Dataset} & HYPERAKTIV (Hicks et al., 2021) \\
@@ -137,7 +150,7 @@ Al restringir el modelado a casos completos sobre \texttt{ASRS} y los tres predi
   \centering
   \caption{Descripción clínica y escalas de las variables independientes seleccionadas.}
   \label{tab:vars}
-  \small
+  \resizebox{\textwidth}{!}{%
   \begin{tabular}{p{3.4cm} p{2.9cm} p{3.6cm} p{2.2cm} p{3.2cm}}
     \toprule
     \textbf{Variable} & \textbf{Instrumento} & \textbf{Qué mide} & \textbf{Escala} & \textbf{Interpretación clínica} \\
@@ -146,7 +159,7 @@ Al restringir el modelado a casos completos sobre \texttt{ASRS} y los tres predi
     $X_2$: \texttt{General TScore Commissions} & Conners' CPT-II & Errores de comisión: responder cuando se debía inhibir (impulsividad) & Puntaje $T$ ($\mu=50$, $\sigma=10$) & $T > 60$: impulsividad o desinhibición elevada \\
     $X_3$: \texttt{HADS\_A} & Hospital Anxiety and Depression Scale & Sintomatología de ansiedad comórbida & Continua (0--21) & 0--7 normal, 8--10 limítrofe, $\ge 11$ clínica \\
     \bottomrule
-  \end{tabular}
+  \end{tabular}}
 \end{table}
 
 Esta combinación evalúa al paciente desde tres dimensiones complementarias: historia del neurodesarrollo (\texttt{WURS}), desempeño neuropsicológico objetivo (\texttt{Commissions}) y estado emocional comórbido (\texttt{HADS\_A}).
@@ -173,7 +186,7 @@ Se calculó la correlación de Pearson ($r$) y su $p$-valor frente a \texttt{ASR
   \centering
   \caption{Principales correlaciones de Pearson ($r$) respecto a \texttt{ASRS}.}
   \label{tab:corr}
-  \small
+  \resizebox{\textwidth}{!}{%
   \begin{tabular}{l r r r l}
     \toprule
     \textbf{Variable candidata} & \textbf{$r$ con \texttt{ASRS}} & \textbf{$p$-valor} & \textbf{$n$} & \textbf{Interpretación} \\
@@ -187,7 +200,7 @@ Se calculó la correlación de Pearson ($r$) y su $p$-valor frente a \texttt{ASR
     \texttt{HADS\_D} & $0.112$ & $0.361$ & 69 & No significativa \\
     \texttt{AGE} & $-0.116$ & $0.320$ & 75 & No significativa \\
     \bottomrule
-  \end{tabular}
+  \end{tabular}}
 \end{table}
 
 \texttt{WURS} presenta la asociación lineal más fuerte ($r = 0.685$), respaldando la continuidad evolutiva del TDAH desde la infancia hasta la adultez. \texttt{Commissions} ($r = 0.526$) conecta una prueba conductual objetiva con la severidad autorreportada, mientras que \texttt{HADS\_A} ($r = 0.304$) refleja la comorbilidad ansiosa. En contraste, la depresión (\texttt{MADRS}, \texttt{HADS\_D}) y la edad (\texttt{AGE}) no muestran relación lineal significativa con \texttt{ASRS}.
@@ -255,7 +268,7 @@ La ecuación estimada resultante en \texttt{notebooks/03\_ols\_modeling\_and\_di
   \centering
   \caption{Estimadores MCO, errores estándar, pruebas $t$ ($gl = 65$) e IC al 95\% ($n = 69$).}
   \label{tab:coef}
-  \small
+  \resizebox{\textwidth}{!}{%
   \begin{tabular}{l r r r r c l}
     \toprule
     \textbf{Término} & $\hat{\beta}_j$ & \textbf{EE} & $t$ & $p$-valor & \textbf{IC 95\%} & \textbf{Significancia} \\
@@ -265,7 +278,7 @@ La ecuación estimada resultante en \texttt{notebooks/03\_ols\_modeling\_and\_di
     \texttt{Commissions} ($\hat{\beta}_2$) & $0.3079$ & $0.1162$ & $2.6507$ & $0.0101$ & $[0.0759,\; 0.5399]$ & Significativo ($p < 0.05$) \\
     \texttt{HADS\_A} ($\hat{\beta}_3$) & $0.1273$ & $0.2833$ & $0.4492$ & $0.6547$ & $[-0.4385,\; 0.6931]$ & No significativo \\
     \bottomrule
-  \end{tabular}
+  \end{tabular}}
 \end{table}
 
 \begin{itemize}
@@ -312,7 +325,7 @@ Los puntos se alinean de forma consistente en torno a la diagonal $y = x$ sin cu
   \centering
   \caption{Pruebas estadísticas formales sobre los residuales del modelo MCO base ($n = 69$).}
   \label{tab:diag}
-  \small
+  \resizebox{\textwidth}{!}{%
   \begin{tabular}{l l r r l}
     \toprule
     \textbf{Supuesto} & \textbf{Prueba / Métrica} & \textbf{Estadístico} & \textbf{$p$-valor / Umbral} & \textbf{Conclusión ($\alpha = 0.05$)} \\
@@ -322,7 +335,7 @@ Los puntos se alinean de forma consistente en torno a la diagonal $y = x$ sin cu
     Independencia & Durbin-Watson ($\text{DW}$) & $2.174$ & Ref.\ $\approx 2.0$ & \textbf{Cumple} (sin autocorrelación) \\
     Puntos influyentes & Distancia de Cook ($D_i$) & 5 casos $> 4/n$ & \textbf{0 casos $> 1.0$} & \textbf{Estable} (sin observaciones patológicas) \\
     \bottomrule
-  \end{tabular}
+  \end{tabular}}
 \end{table}
 
 % ==================== SECCIÓN 7 ====================
@@ -346,7 +359,7 @@ Dado que Breusch-Pagan arrojó un $p$-valor cercano al umbral ($p = 0.0796$) y \
   \centering
   \caption{Comparación de modelos candidatos en escala original de \texttt{ASRS} y supuestos ($n = 69$).}
   \label{tab:transf}
-  \small
+  \resizebox{\textwidth}{!}{%
   \begin{tabular}{l c r r r r r}
     \toprule
     \textbf{Modelo} & $k$ & $R^2_{\text{adj}}$ (mod.) & $R^2$ (\texttt{ASRS}) & \textbf{RMSE (\texttt{ASRS})} & \textbf{Shapiro ($p$)} & \textbf{BP ($p$)} \\
@@ -356,7 +369,7 @@ Dado que Breusch-Pagan arrojó un $p$-valor cercano al umbral ($p = 0.0796$) y \
     Raíz cuadrada $\sqrt{\text{ASRS}}$ & 3 & $0.4726$ & $0.5228$ & $9.7259$ & $0.0127$ & $0.0215$ \\
     Parsimonioso (sin \texttt{HADS\_A}) & 2 & $0.5185$ & $0.5326$ & $9.6251$ & $0.2829$ & $0.0411$ \\
     \bottomrule
-  \end{tabular}
+  \end{tabular}}
 \end{table}
 
 \textbf{Decisión y justificación:} Las transformaciones cóncavas ($\ln$ y $\sqrt{\cdot}$) están diseñadas para corregir colas derechas; como \texttt{ASRS} presenta una ligera \textbf{cola izquierda}, estiran el extremo inferior, \textbf{violan la normalidad} ($p < 0.0001$ y $p = 0.0127$), \textbf{empeoran la homocedasticidad} ($p = 0.0268$ y $p = 0.0215$) e \textbf{incrementan el RMSE} en escala original (Tabla~\ref{tab:transf}). Por su parte, eliminar \texttt{HADS\_A} sube marginalmente $R^2_{\text{adj}}$ ($0.5185$), pero \textbf{incumple homocedasticidad} al 5\% (Breusch-Pagan $p = 0.0411$). En consecuencia, se \textbf{conserva el modelo lineal base en escala original} al ser la única especificación que cumple simultáneamente todos los supuestos y minimiza el error en puntos \texttt{ASRS}.
@@ -372,7 +385,7 @@ Se definieron tres perfiles clínicos con los percentiles \textbf{P10, P50 y P90
   \centering
   \caption{Estimaciones puntuales e intervalos al 95\% para tres perfiles clínicos ($n = 69$).}
   \label{tab:forecasts}
-  \small
+  \resizebox{\textwidth}{!}{%
   \begin{tabular}{l r r r r c c r}
     \toprule
     \textbf{Perfil clínico} & \textbf{WURS} & \textbf{Comm.} & \textbf{HADS\_A} & $\widehat{\text{ASRS}}$ & \textbf{IC 95\% (media)} & \textbf{IP 95\% (indiv.)} & $\widehat{\text{ASRS}}_{\sqrt{Y}}$ \\
@@ -382,7 +395,7 @@ Se definieron tres perfiles clínicos con los percentiles \textbf{P10, P50 y P90
     Carga alta (P90) & 65 & 73 & 16 & $\mathbf{56.06}$ & $[51.11,\; 61.00]$ & $[35.67,\; 76.44]^*$ & $57.62$ \\
     \bottomrule
     \multicolumn{8}{l}{\footnotesize $^*$El límite superior teórico de \texttt{ASRS} es 72, por lo que clínicamente el IP queda acotado a $[35.67,\; 72.00]$.}
-  \end{tabular}
+  \end{tabular}}
 \end{table}
 
 \begin{figure}[H]
@@ -408,17 +421,21 @@ Se definieron tres perfiles clínicos con los percentiles \textbf{P10, P50 y P90
   \item Los pronósticos sobre perfiles representativos (P10, P50 y P90) confirman la coherencia del modelo como herramienta de apoyo al cribado, delimitando con transparencia la incertidumbre a nivel individual.
 \end{enumerate}
 
-% ==================== REFERENCIAS ====================
+% ==================== REFERENCIAS (APA 7.a edición) ====================
 \section*{Referencias}
 \addcontentsline{toc}{section}{Referencias}
 
-\begin{itemize}
-  \item Conners, C. K. (2000). \textit{Conners' Continuous Performance Test II (CPT II)}. Multi-Health Systems.
-  \item Hicks, S. A., Stautland, A., Fasmer, O. B., F\o{}rland, W., Hammer, H. L., Halvorsen, P., \ldots{} Riegler, M. A. (2021). HYPERAKTIV: An activity dataset from patients with attention-deficit/hyperactivity disorder (ADHD). \textit{Proceedings of the 12th ACM Multimedia Systems Conference}.
-  \item Kessler, R. C., Adler, L., Ames, M., et al. (2005). The World Health Organization Adult ADHD Self-Report Scale (ASRS). \textit{Psychological Medicine}, 35(2), 245--256.
-  \item Ward, M. F., Wender, P. H., \& Reimherr, F. W. (1993). The Wender Utah Rating Scale: An aid in the retrospective diagnosis of childhood attention deficit hyperactivity disorder. \textit{American Journal of Psychiatry}, 150(6), 885--890.
-  \item Zigmond, A. S., \& Snaith, R. P. (1983). The Hospital Anxiety and Depression Scale. \textit{Acta Psychiatrica Scandinavica}, 67(6), 361--370.
-\end{itemize}
+\begin{aparefs}
+Conners, C. K. (2000). \textit{Conners' Continuous Performance Test II (CPT II) computer program for Windows technical guide and software manual}. Multi-Health Systems.
+
+Hicks, S. A., Stautland, A., Fasmer, O. B., F\o{}rland, W., Hammer, H. L., Halvorsen, P., Mjeldheim, K., Oedegaard, K. J., Osnes, B., Syrstad, V. E. G., Riegler, M. A., \& Jakobsen, P. (2021). HYPERAKTIV: An activity dataset from adult patients with attention-deficit/hyperactivity disorder (ADHD). En \textit{Proceedings of the 12th ACM Multimedia Systems Conference (MMSys '21)}. Association for Computing Machinery. \url{https://doi.org/10.1145/3458305.3478454}
+
+Kessler, R. C., Adler, L., Ames, M., Demler, O., Faraone, S. A., Hiripi, E., Gruber, M. J., Houle, J. J., Merikangas, K. R., Wand, O. M., \& Zaslavsky, A. M. (2005). The World Health Organization adult ADHD self-report scale (ASRS): A short screening scale for use in the general population. \textit{Psychological Medicine}, \textit{35}(2), 245--256. \url{https://doi.org/10.1017/S0033291704002892}
+
+Ward, M. F., Wender, P. H., \& Reimherr, F. W. (1993). The Wender Utah Rating Scale: An aid in the retrospective diagnosis of childhood attention deficit hyperactivity disorder. \textit{The American Journal of Psychiatry}, \textit{150}(6), 885--890. \url{https://doi.org/10.1176/ajp.150.6.885}
+
+Zigmond, A. S., \& Snaith, R. P. (1983). The Hospital Anxiety and Depression Scale. \textit{Acta Psychiatrica Scandinavica}, \textit{67}(6), 361--370. \url{https://doi.org/10.1111/j.1600-0447.1983.tb09716.x}
+\end{aparefs}
 
 \end{document}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.13)  25 NOV 2026 09:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.13)  25 NOV 2026 17:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -351,26 +351,26 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `reporte_final_arc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Info: Redefining \. on input line 32.
-LaTeX Info: Redefining \% on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Info: Redefining \. on input line 39.
+LaTeX Info: Redefining \% on input line 39.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -428,18 +428,18 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 32.
+Package hyperref Info: Link coloring ON on input line 39.
  (./reporte_final_arc.out) (./reporte_final_arc.out)
 \@outlinefile=\write3
 \openout3 = `reporte_final_arc.out'.
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 44.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -455,147 +455,121 @@ LaTeX Info: Redefining \% on input line 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.71 \newpage
+l.84 \newpage
               [1] [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 119.
+(hyperref)                removing `math shift' on input line 132.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 119.
+(hyperref)                removing `\rightarrow' on input line 132.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 119.
+(hyperref)                removing `math shift' on input line 132.
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 124.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 137.
 
-Underfull \hbox (badness 3375) in paragraph at lines 145--145
-[]|\T1/cmr/m/n/10 Continua (0--
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+[]|\T1/cmr/bx/n/10.95 Interpretación
  []
 
 
-Underfull \hbox (badness 1789) in paragraph at lines 146--146
-[]|$\OML/cmm/m/it/10 X[]$\T1/cmr/m/n/10 : \T1/cmtt/m/n/10 General TScore
+Underfull \hbox (badness 2626) in paragraph at lines 162--162
+[]|$\OMS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 46$\T1/cmr/m/n/10.95 : pun-to de
  []
 
 
-Underfull \hbox (badness 6252) in paragraph at lines 146--146
-[]|\T1/cmr/m/n/10 Errores de co-mi-sión:
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+[]|$\OML/cmm/m/it/10.95 X[]$\T1/cmr/m/n/10.95 : \T1/cmtt/m/n/10.95 General
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--146
-[]|\T1/cmr/m/n/10 Puntaje $\OML/cmm/m/it/10 T$
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+\T1/cmtt/m/n/10.95 TScore
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--146
-\T1/cmr/m/n/10 ($\OML/cmm/m/it/10 ^^V \OT1/cmr/m/n/10 = 50$\T1/cmr/m/n/10 ,
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+[]|\T1/cmr/m/n/10.95 Puntaje $\OML/cmm/m/it/10.95 T$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
-[]|\T1/cmr/m/n/10 Hospital An-xiety
+Underfull \hbox (badness 5533) in paragraph at lines 162--162
+\T1/cmr/m/n/10.95 ($\OML/cmm/m/it/10.95 ^^V \OT1/cmr/m/n/10.95 = 50$\T1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
-\T1/cmr/m/n/10 and De-pres-sion
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+\T1/cmr/m/n/10.95 and De-pres-sion
  []
 
 
-Underfull \hbox (badness 3375) in paragraph at lines 147--147
-[]|\T1/cmr/m/n/10 Continua (0--
- []
-
-
-Overfull \hbox (6.2237pt too wide) in paragraph at lines 141--150
- [][] 
+Underfull \hbox (badness 1728) in paragraph at lines 162--162
+[]|\T1/cmr/m/n/10.95 0--7 nor-mal, 8--10
  []
 
 [3]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 157.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 170.
 <../figures/asrs_distribucion.png, id=169, 722.7pt x 289.08pt>
 File: ../figures/asrs_distribucion.png Graphic file (type png)
 <use ../figures/asrs_distribucion.png>
-Package pdftex.def Info: ../figures/asrs_distribucion.png  used on input line 161.
+Package pdftex.def Info: ../figures/asrs_distribucion.png  used on input line 174.
 (pdftex.def)             Requested size: 430.41309pt x 172.16573pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 168.
+(hyperref)                removing `math shift' on input line 181.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 168.
-
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 179.
-
-Overfull \hbox (8.17574pt too wide) in paragraph at lines 177--191
- [][] 
- []
+(hyperref)                removing `math shift' on input line 181.
 
 [4 <../figures/asrs_distribucion.png>]
 <../figures/dispersion_candidatas.png, id=183, 1011.78pt x 578.16pt>
 File: ../figures/dispersion_candidatas.png Graphic file (type png)
 <use ../figures/dispersion_candidatas.png>
-Package pdftex.def Info: ../figures/dispersion_candidatas.png  used on input line 199.
+Package pdftex.def Info: ../figures/dispersion_candidatas.png  used on input line 212.
 (pdftex.def)             Requested size: 464.64642pt x 265.51572pt.
  [5 <../figures/dispersion_candidatas.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 252.
+(hyperref)                removing `math shift' on input line 265.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 252.
+(hyperref)                removing `math shift' on input line 265.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 252.
+(hyperref)                removing `math shift' on input line 265.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 252.
+(hyperref)                removing `math shift' on input line 265.
 
 [6]
 <../figures/ols_real_vs_predicho.png, id=204, 462.528pt x 346.896pt>
 File: ../figures/ols_real_vs_predicho.png Graphic file (type png)
 <use ../figures/ols_real_vs_predicho.png>
-Package pdftex.def Info: ../figures/ols_real_vs_predicho.png  used on input line 295.
+Package pdftex.def Info: ../figures/ols_real_vs_predicho.png  used on input line 308.
 (pdftex.def)             Requested size: 303.24152pt x 227.4435pt.
  [7]
 <../figures/ols_residual_diagnostics.png, id=212, 867.24pt x 650.43pt>
 File: ../figures/ols_residual_diagnostics.png Graphic file (type png)
 <use ../figures/ols_residual_diagnostics.png>
-Package pdftex.def Info: ../figures/ols_residual_diagnostics.png  used on input line 306.
+Package pdftex.def Info: ../figures/ols_residual_diagnostics.png  used on input line 319.
 (pdftex.def)             Requested size: 449.97392pt x 337.48119pt.
- [8 <../figures/ols_real_vs_predicho.png>]
-Overfull \hbox (112.00267pt too wide) in paragraph at lines 316--326
- [][] 
- []
-
-[9 <../figures/ols_residual_diagnostics.png>]
-Overfull \hbox (57.47792pt too wide) in paragraph at lines 376--386
- [][] 
- []
-
-<../figures/ols_forecasts_profiles.png, id=229, 578.16pt x 361.35pt>
+ [8 <../figures/ols_real_vs_predicho.png>] [9 <../figures/ols_residual_diagnostics.png>]
+<../figures/ols_forecasts_profiles.png, id=231, 578.16pt x 361.35pt>
 File: ../figures/ols_forecasts_profiles.png Graphic file (type png)
 <use ../figures/ols_forecasts_profiles.png>
-Package pdftex.def Info: ../figures/ols_forecasts_profiles.png  used on input line 390.
+Package pdftex.def Info: ../figures/ols_forecasts_profiles.png  used on input line 403.
 (pdftex.def)             Requested size: 381.49979pt x 238.4366pt.
-[10] [11 <../figures/ols_forecasts_profiles.png>]
-Overfull \hbox (8.8517pt too wide) in paragraph at lines 417--418
-\T1/cmr/m/n/10.95 M. A. (2021). HY-PE-RAK-TIV: An ac-ti-vity da-ta-set from pa-tients with attention-deficit/hyperactivity
- []
-
-[12] (./reporte_final_arc.aux
+ [10] [11 <../figures/ols_forecasts_profiles.png>] [12] (./reporte_final_arc.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -607,18 +581,18 @@ Package rerunfilecheck Info: File `reporte_final_arc.out' has not changed.
 (rerunfilecheck)             Checksum: 1A489F37222A026DF56581CB453B3AA1;7818.
  ) 
 Here is how much of TeX's memory you used:
- 14090 strings out of 467363
- 221214 string characters out of 5419000
- 668583 words of memory out of 6000000
- 42915 multiletter control sequences out of 15000+600000
+ 14092 strings out of 467363
+ 221259 string characters out of 5419000
+ 666916 words of memory out of 6000000
+ 42917 multiletter control sequences out of 15000+600000
  659091 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,79p,943b,595s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1728.pfb>
-Output written on reporte_final_arc.pdf (13 pages, 966383 bytes).
+ 75i,15n,79p,926b,595s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1728.pfb>
+Output written on reporte_final_arc.pdf (13 pages, 957634 bytes).
 PDF statistics:
- 426 PDF objects out of 1000 (max. 8388607)
- 325 compressed objects within 4 object streams
+ 425 PDF objects out of 1000 (max. 8388607)
+ 326 compressed objects within 4 object streams
  59 named destinations out of 1000 (max. 500000)
  226 words of extra memory for PDF output out of 10000 (max. 10000000)
 

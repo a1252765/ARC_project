@@ -8,7 +8,7 @@
 \contentsline {subsection}{\numberline {3.2}Descripción clínica de las variables}{3}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Análisis exploratorio de datos (EDA), correlación y selección}{4}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Distribución de la variable respuesta (\texttt {ASRS})}{4}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Coeficientes de correlación de Pearson ($r$) (Rúbrica 1b)}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Coeficientes de correlación de Pearson ($r$) (Rúbrica 1b)}{5}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Gráficas de dispersión (Rúbrica 1a)}{5}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Selección final de predictores y validación de multicolinealidad (VIF)}{6}{subsection.4.4}%
 \contentsline {section}{\numberline {5}Modelado por Mínimos Cuadrados Ordinarios (MCO) e interpretación}{6}{section.5}%

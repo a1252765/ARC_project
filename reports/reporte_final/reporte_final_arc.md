@@ -2,8 +2,9 @@
 title: "Modelado de la Severidad de Síntomas de TDAH en Adultos (ASRS) mediante Regresión Lineal Múltiple"
 subtitle: "Proyecto Final — Análisis de Regresión y Correlación (UABC)"
 author:
-  - "Mariana"
-  - "Richie"
+  - "Luis Alejandro Luna Martínez"
+  - "Mariana Salazar"
+profesora: "Cynthia Calderón García"
 date: "25 de noviembre de 2026"
 lang: es
 geometry: margin=2.2cm
@@ -264,9 +265,13 @@ Para evaluar el desempeño práctico del modelo sin incurrir en extrapolación, 
 
 # Referencias
 
-- Conners, C. K. (2000). *Conners' Continuous Performance Test II (CPT II)*. Multi-Health Systems.
-- Hicks, S. A., Stautland, A., Fasmer, O. B., Førland, W., Hammer, H. L., Halvorsen, P., … Riegler, M. A. (2021). HYPERAKTIV: An activity dataset from patients with attention-deficit/hyperactivity disorder (ADHD). *Proceedings of the 12th ACM Multimedia Systems Conference*.
-- Kessler, R. C., Adler, L., Ames, M., et al. (2005). The World Health Organization Adult ADHD Self-Report Scale (ASRS). *Psychological Medicine, 35*(2), 245–256.
-- Ward, M. F., Wender, P. H., & Reimherr, F. W. (1993). The Wender Utah Rating Scale: An aid in the retrospective diagnosis of childhood attention deficit hyperactivity disorder. *American Journal of Psychiatry, 150*(6), 885–890.
-- Zigmond, A. S., & Snaith, R. P. (1983). The Hospital Anxiety and Depression Scale. *Acta Psychiatrica Scandinavica, 67*(6), 361–370.
+Conners, C. K. (2000). *Conners' Continuous Performance Test II (CPT II) computer program for Windows technical guide and software manual*. Multi-Health Systems.
+
+Hicks, S. A., Stautland, A., Fasmer, O. B., Førland, W., Hammer, H. L., Halvorsen, P., Mjeldheim, K., Oedegaard, K. J., Osnes, B., Syrstad, V. E. G., Riegler, M. A., & Jakobsen, P. (2021). HYPERAKTIV: An activity dataset from adult patients with attention-deficit/hyperactivity disorder (ADHD). En *Proceedings of the 12th ACM Multimedia Systems Conference (MMSys '21)*. Association for Computing Machinery. https://doi.org/10.1145/3458305.3478454
+
+Kessler, R. C., Adler, L., Ames, M., Demler, O., Faraone, S. A., Hiripi, E., Gruber, M. J., Houle, J. J., Merikangas, K. R., Wand, O. M., & Zaslavsky, A. M. (2005). The World Health Organization adult ADHD self-report scale (ASRS): A short screening scale for use in the general population. *Psychological Medicine*, *35*(2), 245–256. https://doi.org/10.1017/S0033291704002892
+
+Ward, M. F., Wender, P. H., & Reimherr, F. W. (1993). The Wender Utah Rating Scale: An aid in the retrospective diagnosis of childhood attention deficit hyperactivity disorder. *The American Journal of Psychiatry*, *150*(6), 885–890. https://doi.org/10.1176/ajp.150.6.885
+
+Zigmond, A. S., & Snaith, R. P. (1983). The Hospital Anxiety and Depression Scale. *Acta Psychiatrica Scandinavica*, *67*(6), 361–370. https://doi.org/10.1111/j.1600-0447.1983.tb09716.x
 
